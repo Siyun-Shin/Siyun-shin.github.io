@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://kit.fontawesome.com/5e84591321.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav-bar">
+      <h1 class="car-name">
+        134두 3140
+      </h1>
+      <div class="btn-wrap-left">
+        <button type="button" class="btn_close" aria-lable="닫기 버튼" onclick='console.log(1)'>
+          <i class="fa-solid fa-xmark colorChange"></i>
+        </button>
+      </div>
+      <div class="btn-wrap-right">
+        <button type="button" class="btn_share" aria-lable="공유하기 버튼">
+          <i class="fa-solid fa-share colorChange"></i>
+        </button>
+        <button type="button" class="btn_like" aria-lable="좋아요 버튼">
+          <i class="fa-solid fa-heart colorChange"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <section class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide visual__img01">
+        <div>img 1</div>
+      </div>
+      <div class="swiper-slide visual__img02">
+        <div>img 2</div>
+      </div>
+      <div class="swiper-slide visual__img03">
+        <div>img 3</div>
+      </div>
+      <div class="swiper-slide visual__img04">
+        <div>img 4</div>
+      </div>
+      <div class="swiper-slide visual__img05">
+        <div>img 5</div>
+      </div>
+      <div class="swiper-slide visual__img06">
+        <div>img 6</div>
+      </div>
+      <div class="swiper-slide visual__img07">
+        <div>img 7</div>
+      </div>
+      <div class="swiper-slide visual__img08">
+        <div>img 8</div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </section>
+  <section class="contents-wrap">
+    <dl>
+      <dt>Trust</dt>
+      <dd>7일간 타보고 환불 가능한 무사고 차량</dd>
+    </dl>
+    <div class="contents-inner">
+      <h2 class="car-name">
+        더 뉴 모하비 디젤 3.0 4WD 프레지던트
+      </h2>
+      <div class="car-info-wrap">
+        <ul class="car-info">
+          <li>18년 04월식</li>
+          <li>12,345km</li>
+          <li>디젤</li>
+        </ul>
+        <strong class="car-price">2,750만원</strong>
+      </div>
+    </div>
+  </section>
+
+  <aside class="btn-hover">
+    <button type="button" onclick="location.href='#'">구매문의</button>
+    <button type="button">홈서비스 신청</button>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  
+  <script>
+
+    var swiper = new Swiper(".mySwiper", {
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction"
+      },
+    });
+
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+  <script>
+
+    // scroll 값 계산
+    // document.addEventListener('scroll', function() {
+    //         var currentScrollValue = document.documentElement.scrollTop;
+    //         console.log('currentScrollValue is ' + currentScrollValue);
+    //     });
+
+    //scroll trigger plug-in btn show-hide
+    gsap.from('.btn-hover',{
+      y: 200,
+      duration: 0.4,
+      scrollTrigger: {
+        trigger: '.btn-hover',
+        start: 100,
+        toggleActions:'play none none reverse'
+      }
+      })
+
+      //nav-bar sho
+      const navbar = document.querySelector('.nav-bar');      
+      function handleNavbar() {
+        if (window.scrollY > 380) navbar.classList.add('is-active');
+        else navbar.classList.remove('is-active');
+      }
+      window.addEventListener("scroll", handleNavbar);
+
+      const showName = document.querySelector('.car-name');      
+      function handleShowName() {
+        if (window.scrollY > 380) showName.classList.add('is-active');
+        else showName.classList.remove('is-active');
+      }
+            window.addEventListener("scroll",handleShowName);
+
+      const carInfo = document.querySelector('.car-info-wrap');      
+      function stickCarInfo() {
+        if (window.scrollY > 380) carInfo.classList.add('is-sticky');
+        else carInfo.classList.remove('is-sticky');
+      }      
+      window.addEventListener("scroll",stickCarInfo);
+
+
+      // on scroll hide and show nav-bar
+      var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+          var currentScrollPos = window.pageYOffset;
+          if (prevScrollpos > currentScrollPos) {
+            document.querySelector(".nav-bar").style.top = "0px";
+            document.querySelector(".car-info-wrap").style.top = "50px";
+          } else {
+            document.querySelector(".nav-bar").style.top = "-50px";
+            document.querySelector(".car-info-wrap").style.top = "0px";
+          }
+          prevScrollpos = currentScrollPos;
+        }
+
+  </script>
+
+</body>
+</html>
