@@ -1,0 +1,241 @@
+/* reset CSS */
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /*  --- main CSS --- */
+
+    /* header */
+
+    .header {
+      width: 100%; position: relative;
+    }
+    .nav-bar { 
+      display: flex; 
+      justify-content: space-between;
+      align-items: center;
+      position: fixed; top: 0px;
+      width: 100%; height: 50px;
+      padding: 0 5%;
+      box-sizing: border-box;
+      transition: top 0.3s ease-in-out;
+    }
+    .nav-bar.is-active {
+      position: fixed;
+      background-color: #fff;
+      z-index: 100;
+    }
+    .nav-bar > h1 {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+    }
+    .car-name.is-active { 
+      visibility: visible;
+    }
+    .nav-bar button { 
+      background: none;
+      border: 0;
+    }
+    .nav-bar i {
+      font-size: 25px;
+      color: #72afd3;
+      line-height: 50px;
+    }
+    .header-sticky {
+      position: fixed; top: -100px;
+      width: 100%; height: 100px;
+      padding: 7% 5%;
+      background-color: #fff;
+      border-bottom: 1px solid #999;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: top 0.3s ease-in-out;
+    }
+
+
+    /* swiper 영역 */
+    .swiper {
+      position:fixed;
+      width: 100%; height: 45%;
+      z-index: -1;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-pagination {
+      width: 50px; height: 20px;
+      left: 2%; bottom: 15%;
+      border-radius: 10px;
+      line-height: 20px;
+      letter-spacing: -1.2px;
+      font-size: 0.8rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0,0.4);
+    }
+
+    /* 콘텐츠 영역 */
+
+    .contents-wrap {
+      position: absolute; top: 40%;
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+      background-color: rgb(51, 51, 51);
+      z-index: 1;
+    }
+    .contents-wrap > dl {
+      position: relative;
+      margin: 5% 5%; 
+      color: #fff;
+    }
+    .contents-inner { 
+      padding-top: 7%;
+      background-color: white;
+      border-radius: 15px 15px 0 0;
+      height: 1500px;
+    }
+    .car-name {
+      padding: 0 5%;
+      margin-bottom: 4%;
+      font-size: 1.4rem;
+      letter-spacing: -1.2px;
+      line-height: 30px;
+      font-weight: 900;
+    }
+    .car-info-wrap { 
+      position: sticky; top: 0px;
+      transition: top 0.3s ease-in-out;
+    }
+    .is-sticky {
+      padding: 6% 0;
+      background-color: #fff;
+      border-bottom: 1px solid rgb(99, 99, 99);
+    }
+    .car-info {
+      padding: 0 5%;
+      display: flex; justify-content: space-between;
+      width: 70%;
+      font-size: 0.9rem;
+      letter-spacing: -1.2px;
+      color: #777;
+    }
+    .car-price {
+      display: block;
+      padding: 10px 5% 0;
+      font-size: 1.2rem;
+    }
+
+    /* btn 구매문의 홈서비스 신청 */
+
+    .btn-hover { 
+      position: fixed; bottom: 5%; left: 50%;
+      display: flex; justify-content: space-around;
+      width: 90%;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
+      .btn-hover > button {
+        width: 46%; height: 45px;
+        border-radius: 25px;
+        border: 0 solid #fff;
+        background-color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px;
+      }
+
+      .btn-hover > button:nth-child(2) {
+        color: #fff;
+        background-image: linear-gradient(to right, #37ecba 0%, #72afd3 100%);
+      }
+      .btn-hover > button:nth-child(2):after {
+        content: "환불 가능한 안심 구매";
+        display: block;
+        position: absolute; top: -76%; left: 58%;
+        padding: 1% 2%;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        animation-name: bubble;
+        animation-duration: 2.2s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes bubble { 
+        from {
+          transform: translate(0);
+        }
+        50% { 
+          transform: translateY(5px);
+        }    
+        to {
+          transform: translateY(0);
+        }
+      }
